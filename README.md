@@ -39,9 +39,9 @@ it's impossible to store meta-information in xattrs in a common portable way.
 
         apt-get install libapache2-mod-fastcgi
 
-  * Place a `fcgi-markdown.rb` to FastCGI script directory
+  * Copy or symlink a `fcgi-markdown.fcgi` to FastCGI script directory
 
-        cp fcgi-markdown.rb /usr/lib/cgi-bin/fcgi-markdown.fcgi
+        cp fcgi-markdown.fcgi /usr/lib/cgi-bin/
 
   * Make sure `cgi-bin` is enabled for execution (check *ExecCGI* option)
 
@@ -59,7 +59,7 @@ it's impossible to store meta-information in xattrs in a common portable way.
 
         gem install bluecloth ruby-fcgi
 
-  * Place `fcgi-markdown.rb` anywhere
+  * Place `fcgi-markdown.fcgi` anywhere you like
 
   * Enable `mod_fastcgi`
 
@@ -68,12 +68,11 @@ it's impossible to store meta-information in xattrs in a common portable way.
   * Add following lines to the config
 
         fastcgi.server = (".md" => ((
-            "bin-path" => "/usr/bin/ruby1.9.1 /var/www/fcgi-markdown.rb",
+            "bin-path" => "/var/www/fcgi-markdown.fcgi",
             "kill-signal" => 10,
             "port" => 1027))
         )
         
-
   * Restart lighttpd
 
 ## License
