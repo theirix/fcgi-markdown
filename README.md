@@ -1,6 +1,6 @@
-# fcgi-markdown
+# fcgi-markdown - ruby FastCGI handler for Markdown
 
-__fcgi-markdown__ is a simple ruby fastcgi handler for Markdown.
+__fcgi-markdown__ is a simple ruby FastCGI handler for Markdown.
 
 Provided script works with a FastCGI module and produce HTML output by Markdown templates.
 
@@ -59,7 +59,7 @@ it's impossible to store meta-information in xattrs in a common portable way.
 
         gem install bluecloth ruby-fcgi
 
-  * Place `fcgi-markdow.rb` anywhere
+  * Place `fcgi-markdown.rb` anywhere
 
   * Enable `mod_fastcgi`
 
