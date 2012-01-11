@@ -25,10 +25,12 @@ FCGI.each {|request|
 
 	cssfile = nil
 	begin
-		scriptfile = File.join(request.env['DOCUMENT_ROOT'], request.env['REQUEST_URI'])
+		uri = request.env['REDIRECT_URI']
+		uri = request.env['REQUEST_URI'] if (uri or '') == '' 
+		scriptfile = File.join(request.env['DOCUMENT_ROOT'], uri)
 		raise 'No such file ' + scriptfile unless File.file?(scriptfile)
 
-		title = URI(request.env['REQUEST_URI']).path.split('/').reject(&:empty?).last
+		title = URI(uri).path.split('/').reject(&:empty?).last
 		title = title[0...title.rindex('.')] if title.rindex('.')
 
 		local_dir = File.dirname(scriptfile)
