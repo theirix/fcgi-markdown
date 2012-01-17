@@ -1,5 +1,5 @@
 #!/usr/bin/ruby1.9.1
-
+# encoding: utf-8
 # Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php 
 
 require "cgi"
@@ -36,7 +36,12 @@ FCGI.each {|request|
 		local_dir = File.dirname(scriptfile)
 		cssfile = %w{markdown style}.map { |s| s+'.css' }.find { |s| File.file?(File.join(local_dir,s)) }
 
-		contents = File::read scriptfile
+		f = File.open(scriptfile, 'r:utf-8')
+		begin
+			contents = f.read
+		ensure
+			f.close
+		end
 		bc = BlueCloth::new contents
 		body = document_wrapper(cssfile) % [ title, bc.to_html ]
 	rescue => e
