@@ -2,7 +2,7 @@
 
 __fcgi-markdown__ is a simple ruby FastCGI handler for Markdown.
 
-Provided script works with a FastCGI module and produce HTML output by Markdown templates.
+Provided script works with a FastCGI module and produce XHTML output by Markdown templates.
 
 ## Styles
 
