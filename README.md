@@ -1,8 +1,9 @@
-# fcgi-markdown - ruby FastCGI handler for Markdown
+# fcgi-markdown - ruby Rack/FastCGI handler for Markdown
 
-__fcgi-markdown__ is a simple ruby FastCGI handler for Markdown.
+__fcgi-markdown__ is a simple ruby Rack/FastCGI handler for Markdown.
 
-Provided script works with a FastCGI module and produce XHTML output by Markdown templates.
+Provided script works is a Rack application that is configured as a FastCGI server.
+Script produces XHTML output by Markdown templates.
 
 ## Styles
 
@@ -22,9 +23,9 @@ it's impossible to store meta-information in xattrs in a common portable way.
    It's bluecloth 2. Can be found at [homepage](http://deveiate.org/projects/BlueCloth)
    or [github mirror](https://github.com/ged/bluecloth)
 
- * `ruby-fcgi` or `fcgi` gem
+ * `rack`
 
-   `ruby-fcgi` is a fork of `fcgi` for ruby 1.9. Check it at the [github](https://github.com/saks/ruby-fcgi)
+	You may need a fcgi gem. `ruby-fcgi` is a fork of `fcgi` for ruby 1.9. Check it at the [github](https://github.com/saks/ruby-fcgi)
 
 
 ## Usage with Apache2
@@ -33,7 +34,7 @@ it's impossible to store meta-information in xattrs in a common portable way.
 
   * Install dependencies
 
-        gem install bluecloth ruby-fcgi
+        gem install rack bluecloth ruby-fcgi
 
   * Install `mod_fastcgi` from the package `libapache2-mod-fastcgi`
 
